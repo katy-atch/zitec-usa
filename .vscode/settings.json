@@ -1,0 +1,10 @@
+// format on save with eslint and prettier
+{
+  "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+  "eslint.enable": true,
+  "eslint.format.enable": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  },
+  "vs-code-prettier-eslint.prettierLast": true // set as "true" to run 'prettier' last not first
+}
