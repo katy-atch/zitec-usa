@@ -1,5 +1,5 @@
-import { Container, Navbar, Nav } from 'react-bootstrap'
-import { Link } from 'react-router'
+import { Container, Navbar, Nav } from 'react-bootstrap';
+import { Link } from 'react-router';
 
 export const Navigation = () => (
   <Navbar expand="lg" className="bg-body-tertiary">
@@ -23,4 +23,4 @@ export const Navigation = () => (
       </Navbar.Collapse>
     </Container>
   </Navbar>
-)
+);

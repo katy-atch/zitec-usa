@@ -12,7 +12,6 @@ As of 2025, the main tech stack for this site consists of:
 This project is configured for VSCode development and includes some recommended extensions for automatic code formatting:
 - [esbenp.prettier-vscode](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) aka Prettier
 - [dbaeumer.vscode-eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) aka ESLint
-- [rvest.vs-code-prettier-eslint](https://marketplace.visualstudio.com/items?itemName=rvest.vs-code-prettier-eslint) for reconciling differences between Prettier and ESLint configs
 
 ## Setting up Local Development
 

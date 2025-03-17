@@ -1,17 +1,17 @@
 export default interface ProductCategory {
-  path: string
-  title: string
-  menuTitle?: string // shorter form of title for menu dropdown. If not provided, use normal title
-  info?: string
+  path: string;
+  title: string;
+  menuTitle?: string; // shorter form of title for menu dropdown. If not provided, use normal title
+  info?: string;
   // If there is only one product, assume the category and product are synonymous
   // If there are multiple products, the category is a collection of products
-  products?: Product[]
+  products?: Product[];
 }
 
 export interface Product {
-  key: string
-  name?: string
-  partNumber?: string
+  key: string;
+  name?: string;
+  partNumber?: string;
 }
 
 export const productCategories: ProductCategory[] = [
@@ -238,4 +238,4 @@ export const productCategories: ProductCategory[] = [
       },
     ],
   },
-]
+];
