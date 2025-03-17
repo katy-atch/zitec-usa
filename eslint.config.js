@@ -43,7 +43,6 @@ export default tseslint.config(
       quotes: ['error', 'single', { avoidEscape: true }],
       'arrow-body-style': ['error', 'as-needed'],
       '@typescript-eslint/no-explicit-any': 'error',
-      semi: ['error', 'always'],
       indent: ['error', 2],
       'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
       '@typescript-eslint/no-non-null-assertion': 'off',
