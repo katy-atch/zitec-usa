@@ -2,16 +2,16 @@ import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router';
 
 export const Navigation = () => (
-  <Navbar expand="sm" className="bg-body-tertiary px-3">
+  <Navbar expand="sm" className="bg-body-tertiary px-3 py-0">
     <Navbar.Brand as={Link} to="/" className="mx-3">
       <img
         src="/src/assets/zitec-logo-only.png"
-        width="75"
-        height="75"
+        width="70"
+        height="70"
         alt="Zitec USA Logo"
-        className="mx-2"
+        className="mx-2 my-0"
       />
-      ZITEC USA
+      Zitec USA
     </Navbar.Brand>
 
     <div className="flex-grow-1 flex-fill"></div>
