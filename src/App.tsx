@@ -4,6 +4,8 @@ import { About } from './components/about/about.tsx';
 import { Contact } from './components/contact/contact.tsx';
 import { Navigation } from './components/navigation.tsx';
 
+import './index.css';
+
 function App() {
   return (
     <BrowserRouter>
