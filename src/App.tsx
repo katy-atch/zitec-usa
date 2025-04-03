@@ -5,6 +5,7 @@ import { Contact } from './components/contact/contact.tsx';
 import { Navigation } from './components/navigation.tsx';
 
 import './index.css';
+import 'yet-another-react-lightbox/styles.css';
 
 function App() {
   return (
