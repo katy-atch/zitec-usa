@@ -9,3 +9,10 @@
   background-color: #0b1661;
   border-color: #0b1661;
 }
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}

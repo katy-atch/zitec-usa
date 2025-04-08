@@ -6,6 +6,7 @@ import { Navigation } from './components/navigation.tsx';
 
 import './index.css';
 import 'yet-another-react-lightbox/styles.css';
+import { Footer } from './components/common/Footer.tsx';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
