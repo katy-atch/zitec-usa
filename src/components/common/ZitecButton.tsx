@@ -1,16 +1,11 @@
 import { Button } from 'react-bootstrap';
+import './common.css';
 
-export const ZitecButton = (props: { children: string }) => (
-  <Button
-    size="lg"
-    className="mt-3"
-    style={{
-      width: 150,
-      backgroundColor: '#122289',
-      borderColor: '#122289',
-      borderRadius: 0,
-    }}
-  >
+export const ZitecButton = (props: {
+  onClick: () => void;
+  children: string;
+}) => (
+  <Button size="lg" className="mt-3" id="zitec-button" onClick={props.onClick}>
     {props.children}
   </Button>
 );

@@ -1,0 +1,11 @@
+#zitec-button {
+  width: 150px;
+  background-color: #122289;
+  border-color: #122289;
+  border-radius: 0;
+}
+
+#zitec-button:hover {
+  background-color: #0b1661;
+  border-color: #0b1661;
+}
