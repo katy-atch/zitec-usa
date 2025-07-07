@@ -15,9 +15,13 @@ export const Footer = () => (
           </p>
         </Col>
         <Col xs={12} sm={6}>
-          <p className="mb-0 small">
+          <a
+            className="mb-0 small zitec-link"
+            href="http://maps.google.com/?q=1031 Partin Drive North Niceville, Florida 32578"
+            target="_blank"
+          >
             1031 Partin Drive North Niceville, Florida 32578
-          </p>
+          </a>
         </Col>
       </Row>
     </div>

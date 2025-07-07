@@ -8,10 +8,10 @@ export const Navigation = () => (
         src="/src/assets/zitec-logo-only.png"
         width="70"
         height="70"
-        alt="Zitec USA Logo"
+        alt="ZITEC USA Logo"
         className="mx-2 my-0"
       />
-      Zitec USA
+      ZITEC USA
     </Navbar.Brand>
 
     <div className="flex-grow-1 flex-fill"></div>
