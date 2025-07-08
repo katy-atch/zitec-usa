@@ -1,5 +1,6 @@
 import { Col, Container, Row } from 'react-bootstrap';
 import './about.css';
+import founder from '../../assets/founder.png';
 
 export const About = () => (
   <>
@@ -81,7 +82,7 @@ export const About = () => (
             }}
           >
             <img
-              src="./src/assets/founder.png"
+              src={founder}
               style={{ width: '100%', height: 'auto ', maxWidth: '200px' }}
             />
           </Col>
