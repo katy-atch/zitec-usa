@@ -81,7 +81,7 @@ export const About = () => (
             }}
           >
             <img
-              src="src/assets/founder.png"
+              src="./src/assets/founder.png"
               style={{ width: '100%', height: 'auto ', maxWidth: '200px' }}
             />
           </Col>
