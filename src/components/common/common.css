@@ -14,6 +14,16 @@
   width: 100%;
 }
 
+.zitec-link {
+  font-weight: 500;
+  color: #122289;
+  text-decoration: none;
+}
+.zitec-link:hover {
+  color: #0b1661;
+  text-decoration: underline;
+}
+
 /* @media (min-width: 992px) {
   #footer {
     position: fixed;

@@ -26,7 +26,7 @@ export const TitleOverlay = () => {
               ground servicing equipment to the US military and its
               international allies.
             </h6>
-            <ZitecButton onClick={() => navigate('/about')}>
+            <ZitecButton onClick={() => navigate('/zitec-usa/about')}>
               Learn More
             </ZitecButton>
           </Col>

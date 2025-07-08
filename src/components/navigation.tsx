@@ -3,15 +3,15 @@ import { Link } from 'react-router';
 
 export const Navigation = () => (
   <Navbar expand="sm" className="bg-body-tertiary px-3 py-0">
-    <Navbar.Brand as={Link} to="/" className="mx-3">
+    <Navbar.Brand as={Link} to="/zitec-usa" className="mx-3">
       <img
-        src="/src/assets/zitec-logo-only.png"
+        src="zitec-logo.png"
         width="70"
         height="70"
-        alt="Zitec USA Logo"
+        alt="ZITEC USA Logo"
         className="mx-2 my-0"
       />
-      Zitec USA
+      ZITEC USA
     </Navbar.Brand>
 
     <div className="flex-grow-1 flex-fill"></div>
@@ -20,13 +20,13 @@ export const Navigation = () => (
       id="basic-navbar-nav"
       className="me-auto justify-content-evenly"
     >
-      <Nav.Link as={Link} to="/about">
+      <Nav.Link as={Link} to="/zitec-usa/about">
         About Us
       </Nav.Link>
-      <Nav.Link as={Link} to="/contact">
+      {/* <Nav.Link as={Link} to="/zitec-usa/products">
         Our Products
-      </Nav.Link>
-      <Nav.Link as={Link} to="/contact">
+      </Nav.Link> */}
+      <Nav.Link as={Link} to="/zitec-usa/contact">
         Contact Us
       </Nav.Link>
     </Navbar.Collapse>

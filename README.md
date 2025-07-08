@@ -1,4 +1,4 @@
-# Zitec USA Commercial Site
+# ZITEC USA Commercial Site
 
 This is a static website for showing the main contact info and products for Zitec, Inc.
 
