@@ -23,11 +23,11 @@ export const Navigation = () => (
       <Nav.Link as={Link} to="/zitec-usa/about">
         About Us
       </Nav.Link>
-      {/* <Nav.Link as={Link} to="/zitec-usa/products">
-        Our Products
-      </Nav.Link> */}
       <Nav.Link as={Link} to="/zitec-usa/contact">
         Contact Us
+      </Nav.Link>
+      <Nav.Link as={Link} to="/zitec-usa/products/molt">
+        MOLT
       </Nav.Link>
     </Navbar.Collapse>
   </Navbar>
