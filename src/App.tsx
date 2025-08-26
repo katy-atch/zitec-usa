@@ -8,6 +8,7 @@ import './index.css';
 import 'yet-another-react-lightbox/styles.css';
 import { Footer } from './components/common/Footer.tsx';
 import { NotFound } from './components/notFound.tsx';
+import { ProductPage } from './components/products/Product.tsx';
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
+
+          <Route path="products/:productKey" element={<ProductPage />} /> {/* For demo purposes */}
+
           <Route path="*" element={<NotFound />} />
         </Route>
         {/* Temp - GitHub pages requires this as the base path */}
