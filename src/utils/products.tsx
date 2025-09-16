@@ -91,7 +91,7 @@ export const products: Product[] = [
     name: 'MOLT',
     partNumber: 'NSN: 1730-01-227-8152\nP/N 8644725-10',
     zitecPartNumber: '!!! NEED A PART NUMBER',
-    description: 'This a molt bro, I aint playin youll love it'
+    description: 'This a molt bro, I aint playin youll love it',
   },
   {
     key: 'mpcu',
