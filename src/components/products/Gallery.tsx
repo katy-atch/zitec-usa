@@ -13,9 +13,9 @@ import Thumbnails from 'yet-another-react-lightbox/plugins/thumbnails';
 import Zoom from 'yet-another-react-lightbox/plugins/zoom';
 import 'yet-another-react-lightbox/plugins/thumbnails.css';
 
-import molt from '../../assets/products/molt/molt.jpg';
-import molt2 from '../../assets/products/molt/molt2.jpg';
-import molt3 from '../../assets/products/molt/molt3.jpg';
+import molt from '../../assets/products/molt/molt.png';
+import molt2 from '../../assets/products/molt/molt2.png';
+import molt3 from '../../assets/products/molt/molt3.png';
 
 const breakpoints = [1080, 640, 384, 256, 128, 96, 64, 48];
 
