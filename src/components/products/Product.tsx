@@ -5,8 +5,7 @@ import { useMemo } from 'react';
 import { Product, products } from '../../utils/products';
 import colors from '../../utils/colors.ts';
 
-// import { Gallery } from './Gallery.tsx';
-import { Gallery } from './Gallery2-thesecondone.tsx';
+import { Gallery } from './Gallery.tsx';
 
 export const ProductPage = () => {
   const { productKey } = useParams();
