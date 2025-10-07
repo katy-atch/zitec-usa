@@ -1,6 +1,7 @@
 import { Col, Container, Row } from 'react-bootstrap';
 import './about.css';
 import founder from '../../assets/founder.png';
+import colors from '../../utils/colors.ts';
 
 export const About = () => (
   <>
@@ -22,7 +23,7 @@ export const About = () => (
     </div>
     <div className="bg-light">
       <Container className="py-5">
-        <h6 className="display-6 text-center" style={{ color: '#122289' }}>
+        <h6 className="display-6 text-center" style={{ color: colors.primary }}>
           Our mission
         </h6>
         <p className="lead">
@@ -38,7 +39,7 @@ export const About = () => (
 
     <div>
       <Container className="py-4">
-        <h4 style={{ color: '#122289' }}>Who we are</h4>
+        <h4 style={{ color: colors.primary }}>Who we are</h4>
         <p>
           <strong>ZITEC, Inc.</strong> is a small business specialized in the
           development, design, manufacturing, testing, installation,
@@ -95,8 +96,8 @@ export const About = () => (
               justifyContent: 'center',
             }}
           >
-            <h6 style={{ color: '#122289' }}>Founder / CEO</h6>
-            <h4 style={{ color: '#122289' }}>Daniel Mank</h4>
+            <h6 style={{ color: colors.primary }}>Founder / CEO</h6>
+            <h4 style={{ color: colors.primary }}>Daniel Mank</h4>
             <p>
               ZITEC's founder and president is <strong>Mr. Daniel Mank</strong>.
               As a US Air Force retiree, he proudly and honorably served over 20

@@ -1,21 +1,22 @@
 import { Container, Col, Row } from 'react-bootstrap';
-import { useParams } from 'react-router';
-import { useMemo, useState } from 'react';
+import { useParams, useNavigate } from 'react-router';
+import { useMemo } from 'react';
 
 import { Product, products } from '../../utils/products';
+import colors from '../../utils/colors.ts';
 
-import { Gallery } from './Gallery';
-
+// import { Gallery } from './Gallery.tsx';
+import { Gallery } from './Gallery2-thesecondone.tsx';
 
 export const ProductPage = () => {
   const { productKey } = useParams();
+  const navigate = useNavigate();
 
-  if (productKey !== 'molt') throw new Error("Go away for now.");
-  const [product, setProduct] = useState<Product | undefined>(undefined);
+  const product: Product | undefined = useMemo(() => products.find(p => p.key === productKey), [productKey]);
 
-  useMemo(() => {
-    setProduct(products.find(p => p.key === productKey));
-  }, [productKey]);
+  if (!product) {
+    navigate("/zitec-usa")
+  }
 
   const formatPartNumbers = () => {
     if (!product?.partNumber && !product?.nationalStockNumber) return null;
@@ -41,10 +42,10 @@ export const ProductPage = () => {
     <Container>
       <Row className="justify-content-center m-5">
         <Col md={7}>
-          <Gallery />
+          <Gallery productKey={productKey || ''} />
         </Col>
         <Col md={5}>
-          <h2 style={{ color: '#122289' }}>{product?.name}</h2>
+          <h2 style={{ color: colors.primary }}>{product?.name}</h2>
           {formatPartNumbers()}
           <p style={{ whiteSpace: 'pre-line' }}>
             <div dangerouslySetInnerHTML={{ __html: product?.description || '' }} />

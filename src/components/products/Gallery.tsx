@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 
 import type { Photo } from 'react-photo-album';
 import { RowsPhotoAlbum } from 'react-photo-album';
@@ -13,49 +13,66 @@ import Thumbnails from 'yet-another-react-lightbox/plugins/thumbnails';
 import Zoom from 'yet-another-react-lightbox/plugins/zoom';
 import 'yet-another-react-lightbox/plugins/thumbnails.css';
 
-import molt from '../../assets/products/molt/molt.png';
-import molt2 from '../../assets/products/molt/molt2.png';
-import molt3 from '../../assets/products/molt/molt3.png';
+// 🧩 Import all .png images under each product folder
+const allProductImages = import.meta.glob<{ default: string }>(
+  '../../assets/products/*/*.png',
+  { eager: true }
+);
+
+// 🔍 Get images for a given product
+const getProductImages = (productKey: string): string[] => {
+  return Object.entries(allProductImages)
+    .filter(([path]) => path.includes(`/products/${productKey}/`))
+    .map(([, module]) => module.default);
+};
 
 const breakpoints = [1080, 640, 384, 256, 128, 96, 64, 48];
 
-const photos = [molt, molt2, molt3].map((src) => {
-  let width = 738,
-    height = 554;
+const toPhotos = (foundImages: string[]): Photo[] =>
+  foundImages.map((src) => {
+    let width = 738,
+      height = 554;
 
-  // expected image path: image.738x554.jpg
-  const imgProperties = src.split('.');
+    const imgProperties = src.split('.');
 
-  if (imgProperties.length > 2) {
-    const [w, h] = imgProperties[1].split('x');
-    width = parseInt(w, 10);
-    height = parseInt(h, 10);
-  }
+    if (imgProperties.length > 2) {
+      const [w, h] = imgProperties[1].split('x');
+      width = parseInt(w, 10);
+      height = parseInt(h, 10);
+    }
 
-  return {
-    src,
-    width,
-    height,
-    srcSet: breakpoints.map((breakpoint) => ({
+    return {
       src,
-      width: breakpoint,
-      height: Math.round((height / width) * breakpoint),
-    })),
-  } as Photo;
-});
+      width,
+      height,
+      srcSet: breakpoints.map((bp) => ({
+        src,
+        width: bp,
+        height: Math.round((height / width) * bp),
+      })),
+    };
+  });
 
-export const Gallery = () => {
+export const Gallery = ({ productKey }: { productKey: string }) => {
   const [hoverIndex, setHoverIndex] = useState(-1);
 
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+
+  // 🧠 Memoize for performance
+  const foundImages = useMemo(() => getProductImages(productKey), [productKey]);
+  const photoList = useMemo(() => toPhotos(foundImages), [foundImages]);
+
+  if (photoList.length === 0) {
+    return <p className="text-center text-gray-500">No images found for "{productKey}".</p>;
+  }
 
   return (
     <>
       <div className="max-w-md mx-auto space-y-4" >
         <div className=" w-full overflow-hidden rounded-md">
           <img
-            src={photos[hoverIndex == -1 ? selectedIndex : hoverIndex].src}
+            src={photoList[hoverIndex == -1 ? selectedIndex : hoverIndex].src}
             alt=""
             className="mb-3"
             style={{ cursor: 'pointer', width: '100%', height: 'auto' }}
@@ -63,7 +80,7 @@ export const Gallery = () => {
           />
         </div>
         <RowsPhotoAlbum
-          photos={photos}
+          photos={photoList}
           render={{
             image: (imageProps, { index }) => (
               <div
@@ -84,7 +101,7 @@ export const Gallery = () => {
       <Lightbox
         open={lightboxOpen}
         index={selectedIndex}
-        slides={photos.map((p) => ({ src: p.src }))}
+        slides={photoList.map((p) => ({ src: p.src }))}
         plugins={[Fullscreen, Slideshow, Thumbnails, Zoom]}
         close={() => setLightboxOpen(false)}
       />

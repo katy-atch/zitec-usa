@@ -84,6 +84,7 @@ export const products: Product[] = [
   {
     key: 'mpcu',
     name: 'MPCU/MPCU Plus',
+    description: '!!!!!!!! THIS A DESCRIPTION!!!! YEAHHHHH !!!!!!!!!'
   },
   {
     key: 'mpcu-plus-uninterruptable',
@@ -112,7 +113,7 @@ export const products: Product[] = [
   {
     key: 'sdb-lift-bar',
     name: 'SDB Lift Bar',
-    partNumber: 'X20097192', 
+    partNumber: 'X20097192',
   },
   {
     key: 'ter-stand',
