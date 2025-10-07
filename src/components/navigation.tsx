@@ -1,4 +1,4 @@
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router';
 
 export const Navigation = () => (
@@ -23,11 +23,22 @@ export const Navigation = () => (
       <Nav.Link as={Link} to="/zitec-usa/about">
         About Us
       </Nav.Link>
+      <NavDropdown title="Products" id="products-dropdown">
+        <NavDropdown.Item as={Link} to="/zitec-usa/products/20mm-gun-stand">
+          20MM Gun Maintenance Stand
+        </NavDropdown.Item>
+        <NavDropdown.Item as={Link} to="/zitec-usa/products/f-35-storage-system">
+          F-35 AME Storage and Mobility System
+        </NavDropdown.Item>
+        <NavDropdown.Item as={Link} to="/zitec-usa/products/molt">
+          Manually Operated Lift Truck (MOLT)
+        </NavDropdown.Item>
+        <NavDropdown.Item as={Link} to="/zitec-usa/products/munitions-table">
+          Munitions Maintenance and Inspection Table
+        </NavDropdown.Item>
+      </NavDropdown>
       <Nav.Link as={Link} to="/zitec-usa/contact">
         Contact Us
-      </Nav.Link>
-      <Nav.Link as={Link} to="/zitec-usa/products/molt">
-        MOLT
       </Nav.Link>
     </Navbar.Collapse>
   </Navbar>

@@ -18,7 +18,7 @@ export const ProductPage = () => {
   }
 
   const formatPartNumbers = () => {
-    if (!product?.partNumber && !product?.nationalStockNumber) return null;
+    if (!product?.partNumber && !product?.nationalStockNumber && !product?.zitecPartNumber) return null;
 
     return (
       <p>
@@ -31,6 +31,13 @@ export const ProductPage = () => {
         {product?.partNumber && (
           <>
             <strong>P/N:</strong> {product.partNumber}
+            <br />
+          </>
+        )}
+        {product?.zitecPartNumber && (
+          <>
+            <strong>ZITEC P/N:</strong> {product.zitecPartNumber}
+            <br />
           </>
         )}
       </p>

@@ -15,24 +15,23 @@ export interface Product {
   partNumber?: string;
   nationalStockNumber?: string;
   description?: string;
-  imgPrefix?: string;
 }
 
 export const products: Product[] = [
   {
     key: '20mm-gun-stand',
-    name: '20mm Gun Stand',
-    imgPrefix: '20mmgun',
+    name: '20MM Gun Maintenance Stand',
+    partNumber: 'X20075010',
+    zitecPartNumber: 'Z20MM453-10',
+    description: 'The 20MM Gun Maintenance Stand is used to perform maintenance and testing of a 20MM gun system. \n\n The 20MM Gun Maintenance Stand can be used on any flat surface or permanently mounted on a work bench to facilitate maintenance and testing on the 20MM gun. \n\n The stand allows technicians to perform maintenance on the gun in both the horizontal or vertical positions. While in the vertical position, the gun may be rotated 360 degrees and locked at 45 degree increments.'
   },
   {
     key: '275-rocket-storage-stand',
-    name: '275 Rocket Storage Stand',
-    imgPrefix: '275-rocket-storage-stand'
+    name: '2.75" Rocket Storage Stand',
   },
   {
     key: 'ame-service-trailer',
-    name: 'AME Service Trailer',
-    imgPrefix: 'ame-service-trailer'
+    name: 'Alternate Mission Equipment (AME) Service Trailer',
   },
   {
     key: 'bru-57-maintenance-stand',
@@ -45,11 +44,11 @@ export const products: Product[] = [
   {
     key: 'bru-61-loading-adapter',
     name: 'BRU-61 Loading Adapter',
-    partNumber: '20075010',
+    partNumber: 'X20173240',
   },
   {
     key: 'f-22-pylon-stand',
-    name: 'F-22 Pylon Stand',
+    name: 'F-22 Pylon Storage Stand',
     partNumber: 'X20065083',
   },
   {
@@ -58,21 +57,23 @@ export const products: Product[] = [
     partNumber: 'X20122270-10',
   },
   {
-    key: 'f-35-storage-fixture',
-    name: 'F-35 AME Storage Fixture',
+    key: 'f-35-storage-system',
+    name: 'F-35 AME Storage and Mobility System',
     partNumber: 'X20143164-10',
+    zitecPartNumber: 'Z64039909-10',
+    description: 'ZITEC\'s F-35 AME Storage and Mobility System offers users a convenient, organized, and proven method to store, maintain, and transport F-35 bomb racks, air-to-ground pylons, missile launchers, and other aircraft external stores. \n\n This two-part system is comprised of a "Buck", where AME items are secured for storage and transport, and an "Outer Frame", which is used to store and maintain AME when not in use or on the aircraft.'
   },
   {
     key: 'mac',
-    name: 'MAC',
+    name: 'Munitions Assembly Conveyor (MAC)',
   },
   {
     key: 'mac-jd-neuhaus',
-    name: 'MAC JS Neuhaus',
+    name: 'MAC Hoists - JS Neuhaus',
   },
   {
     key: 'mac-ingersoll-rand',
-    name: 'MAC Ingersoll Rand',
+    name: 'MAC Hoists - Ingersoll Rand',
   },
   {
     key: 'molt',
@@ -84,7 +85,6 @@ export const products: Product[] = [
   {
     key: 'mpcu',
     name: 'MPCU/MPCU Plus',
-    description: '!!!!!!!! THIS A DESCRIPTION!!!! YEAHHHHH !!!!!!!!!'
   },
   {
     key: 'mpcu-plus-uninterruptable',
@@ -92,9 +92,12 @@ export const products: Product[] = [
   },
   {
     key: 'munitions-table',
-    name: 'Munitions Table',
+    name: 'Munitions Maintenance and Inspection Table',
     partNumber: '20075135',
+    nationalStockNumber: '7195-01-590-6508',
+    description: 'The Munitions Maintenance and Inspection Table is all aluminum and can be folded for storage or transport. It also has adjustable feet that can raise or lower the table height to accommodate different working conditions. \n\n It comes painted grey, but the top of the table is bare aluminum and can be grounded to process electically primed munitions. \n\n The table\'s empty weight is 170 lbs, and its maximum capacity is 750 lbs. '
   },
+  // Six Inch Rubber Rollers and Universal Extender Assemblies
   {
     key: 'roller-mhu-83',
     name: 'Rubber Roller for MHU-83',
@@ -103,7 +106,7 @@ export const products: Product[] = [
   {
     key: 'roller-mj-1',
     name: 'Rubber Roller for MJ-1',
-    partNumber: '200414151-10',
+    partNumber: '200414151-30',
   },
   {
     key: 'roller-extender-assembly',
@@ -112,16 +115,16 @@ export const products: Product[] = [
   },
   {
     key: 'sdb-lift-bar',
-    name: 'SDB Lift Bar',
+    name: 'Small Diameter Bomb (SDB) Lightweight Lift Bar',
     partNumber: 'X20097192',
   },
   {
     key: 'ter-stand',
-    name: 'TER Stand',
+    name: 'Triple Ejection Rack Storage Stand',
   },
   {
     key: 'toolkit',
-    name: 'Toolkit',
+    name: 'Missile and Bomb Assembly and Maintenance Tool Kits',
   },
   {
     key: 'transport-module-105mm',
