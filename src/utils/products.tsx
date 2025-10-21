@@ -1,241 +1,170 @@
-export default interface ProductCategory {
-  path: string;
+export interface ProductCategory {
+  key: string;
   title: string;
   menuTitle?: string; // shorter form of title for menu dropdown. If not provided, use normal title
   info?: string;
   // If there is only one product, assume the category and product are synonymous
   // If there are multiple products, the category is a collection of products
-  products?: Product[];
+  productKeys: string[];
 }
 
 export interface Product {
   key: string;
-  name?: string;
+  name: string;
+  zitecPartNumber?: string;
   partNumber?: string;
+  nationalStockNumber?: string;
+  description?: string;
 }
 
-export const productCategories: ProductCategory[] = [
+// 🧩 Import all .png images under each product folder
+export const allProductImages = import.meta.glob<{ default: string }>(
+  '../assets/products/*/*.png',
+  { eager: true }
+);
+
+// 🔍 Get all images for a given product key
+export const getProductImages = (productKey: string): string[] => {
+  return Object.entries(allProductImages)
+    .filter(([path]) => path.includes(`/products/${productKey}/`))
+    .map(([, module]) => module.default);
+};
+
+export const products: Product[] = [
   {
-    path: '20mm-gun-stand',
-    title: '20mm Gun Maintenance Stand',
-    products: [
-      {
-        key: '20mm-gun-stand',
-        partNumber: 'P/N X20075010\nP/N Z20MM453-10',
-      },
-    ],
+    key: '20mm-gun-stand',
+    name: '20MM Gun Maintenance Stand',
+    partNumber: 'X20075010',
+    zitecPartNumber: 'Z20MM453-10',
+    description: 'The 20MM Gun Maintenance Stand is used to perform maintenance and testing of a 20MM gun system. \n\n The 20MM Gun Maintenance Stand can be used on any flat surface or permanently mounted on a work bench to facilitate maintenance and testing on the 20MM gun. \n\n The stand allows technicians to perform maintenance on the gun in both the horizontal or vertical positions. While in the vertical position, the gun may be rotated 360 degrees and locked at 45 degree increments.'
   },
   {
-    path: 'rocket-storage-stand',
-    title: '2.75" Rocket Storage Stand',
-    products: [
-      {
-        key: '275-rocket-storage-stand',
-      },
-    ],
+    key: '275-rocket-storage-stand',
+    name: '2.75" Rocket Storage Stand',
   },
   {
-    path: 'ame-trailer',
-    title: 'Alternate Mission Equipment (AME) Service Trailer',
-    menuTitle: 'AME Service Trailer',
-    products: [
-      {
-        key: 'ame-service-trailer',
-      },
-    ],
+    key: 'ame-service-trailer',
+    name: 'Alternate Mission Equipment (AME) Service Trailer',
   },
   {
-    path: 'bru-57',
-    title: 'BRU-57 Stands',
-    products: [
-      {
-        key: 'bru-57-maintenance-stand',
-        name: 'BRU-57 Maintenance and Inspection Stand',
-      },
-      {
-        key: 'bru-57-storage-stand',
-        name: 'BRU-57 Storage Stand',
-      },
-    ],
+    key: 'bru-57-maintenance-stand',
+    name: 'BRU-57 Maintenance and Inspection Stand',
   },
   {
-    path: 'bru-61',
-    title: 'BRU-61 Loading Adapter',
-    products: [
-      {
-        key: 'bru-61-loading-adapter',
-        partNumber: 'P/N 20075010',
-      },
-    ],
+    key: 'bru-57-storage-stand',
+    name: 'BRU-57 Storage Stand',
   },
   {
-    path: 'f22-pylon-stand',
-    title: 'F-22 Pylon Storage Stand',
-    products: [
-      {
-        key: 'f-22-pylon-stand',
-        partNumber: 'P/N X20065083',
-      },
-    ],
+    key: 'bru-61-loading-adapter',
+    name: 'BRU-61 Loading Adapter',
+    partNumber: 'X20173240',
   },
   {
-    path: 'f35-mobility-platforms',
-    title: 'Mobility Platforms for F-35 Aircraft AME',
-    menuTitle: 'F-35 Mobility Platforms',
-    products: [
-      {
-        key: 'f-35-storage-rack',
-        name: 'F-35 AME Mobility Ready Storage Rack',
-        partNumber: 'P/N X20122270-10',
-      },
-      {
-        key: 'f-35-storage-fixture',
-        name: 'F-35 AME Storage Fixture',
-        partNumber: 'P/N X20143164-10',
-      },
-    ],
+    key: 'f-22-pylon-stand',
+    name: 'F-22 Pylon Storage Stand',
+    partNumber: 'X20065083',
   },
   {
-    path: 'mac',
-    title: 'Munitions Assembly Conveyer',
-    products: [
-      {
-        key: 'mac',
-      },
-    ],
+    key: 'f-35-storage-rack',
+    name: 'F-35 AME Mobility Ready Storage Rack',
+    partNumber: 'X20122270-10',
   },
   {
-    path: 'mac-hoists',
-    title: 'MAC Hoists',
-    info: 'We also provide MAC Hoist reconditioning services.',
-    products: [
-      {
-        key: 'mac-jd-neuhaus',
-      },
-      {
-        key: 'mac-ingersoll-rand',
-      },
-    ],
+    key: 'f-35-storage-system',
+    name: 'F-35 AME Storage and Mobility System',
+    partNumber: 'X20143164-10',
+    zitecPartNumber: 'Z64039909-10',
+    description: 'ZITEC\'s F-35 AME Storage and Mobility System offers users a convenient, organized, and proven method to store, maintain, and transport F-35 bomb racks, air-to-ground pylons, missile launchers, and other aircraft external stores. \n\n This two-part system is comprised of a "Buck", where AME items are secured for storage and transport, and an "Outer Frame", which is used to store and maintain AME when not in use or on the aircraft.'
   },
   {
-    path: 'molt',
-    title: 'Manually Operated Lift Truck (MOLT)',
-    products: [
-      {
-        key: 'molt',
-        partNumber: 'NSN: 1730-01-227-8152\nP/N 8644725-10',
-      },
-    ],
+    key: 'mac',
+    name: 'Munitions Assembly Conveyor (MAC)',
   },
   {
-    path: 'mpcu',
-    title: 'Mobile Power Conditioning Unit (MPCU)',
-    products: [
-      {
-        key: 'mpcu',
-        name: 'MPCU/MPCU Plus',
-      },
-      {
-        key: 'mpcu-plus-uninterruptable',
-        name: 'MPCU Plus with Uninterruptable Power Supply',
-      },
-    ],
+    key: 'mac-jd-neuhaus',
+    name: 'MAC Hoists - JS Neuhaus',
   },
   {
-    path: 'munitions-tables',
-    title: 'Munitions Maintenance and Inspection Tables',
-    menuTitle: 'Munitions Tables',
-    products: [
-      {
-        key: 'munitions-table',
-        partNumber: 'P/N 20075135',
-      },
-    ],
+    key: 'mac-ingersoll-rand',
+    name: 'MAC Hoists - Ingersoll Rand',
   },
   {
-    path: 'rubber-rollers',
-    title: 'Six Inch Rubber Rollers and Universal Extender Assemblies',
-    menuTitle: 'Rubber Rollers and Extenders',
-    products: [
-      {
-        key: 'roller-mhu-83',
-        name: 'Rubber Roller for MHU-83',
-        partNumber: 'P/N 200414151-10',
-      },
-      {
-        key: 'roller-mj-1',
-        name: 'Rubber Roller for MJ-1',
-        partNumber: 'P/N 200414151-10',
-      },
-      {
-        key: 'roller-extender-assembly',
-        name: 'Universal Extender Assembly',
-        partNumber: 'P/N 200334009',
-      },
-    ],
+    key: 'molt',
+    name: 'Manually Operated Lift Truck (MOLT)',
+    partNumber: '8644725-10',
+    nationalStockNumber: '1730-01-227-8152',
+    description: 'ZITEC manufactures the <b>MHU-194/E</b> Manually Operated Lift Truck (MOLT) designed for loading bombs, missiles, fuel tanks, and other aircraft stores weighing up to 2,450 lbs. \n\n The MOLT is a very easy and inexpensive piece of ground support equipment to operate and maintain as it has no hydraulic, electrical, internal combustion, or motor-driven components — it is a fully mechanical lifting device using hand cranks to operate. \n\n It is highly reliable, durable, safe to operate, and robust and has been in use worldwide for over 30 years.',
   },
   {
-    path: 'sdb-lift-bar',
-    title: 'Small Diameter Bomb (SDB) Lightweight Lift Bar',
-    menuTitle: 'SDB Lift Bar',
-    products: [
-      {
-        key: 'sdb-lift-bar',
-        partNumber: 'P/N X20097192',
-      },
-    ],
+    key: 'mpcu',
+    name: 'MPCU/MPCU Plus',
   },
   {
-    path: 'ter-stand',
-    title: 'Triple Ejection Rack (TER) Storage Stand',
-    products: [
-      {
-        key: 'ter-stand',
-      },
-    ],
+    key: 'mpcu-plus-uninterruptable',
+    name: 'MPCU Plus with Uninterruptable Power Supply',
   },
   {
-    path: 'toolkits',
-    title: 'Missile and Bomb Assembly and Maintenance Tool Kits',
-    menuTitle: 'Toolkits',
-    products: [
-      {
-        key: 'toolkit',
-      },
-    ],
+    key: 'munitions-table',
+    name: 'Munitions Maintenance and Inspection Table',
+    partNumber: '20075135',
+    nationalStockNumber: '7195-01-590-6508',
+    description: 'The Munitions Maintenance and Inspection Table is all aluminum and can be folded for storage or transport. It also has adjustable feet that can raise or lower the table height to accommodate different working conditions. \n\n It comes painted grey, but the top of the table is bare aluminum and can be grounded to process electically primed munitions. \n\n The table\'s empty weight is 170 lbs, and its maximum capacity is 750 lbs. '
+  },
+  // Six Inch Rubber Rollers and Universal Extender Assemblies
+  {
+    key: 'roller-mhu-83',
+    name: 'Rubber Roller for MHU-83',
+    partNumber: '200414151-10',
   },
   {
-    path: 'transport-modules',
-    title: 'Transportation Modules',
-    products: [
-      {
-        key: 'transport-module-105mm',
-        name: '105mm Transport Module',
-      },
-      {
-        key: 'transport-module-2-75mm',
-        name: '2.75MM Transport Module',
-      },
-      {
-        key: 'transport-module-ale-40',
-        name: 'ALE-40 Chaff & Flare Transport Module',
-      },
-      {
-        key: 'transport-module-ale-50',
-        name: 'ALE-50 Transport Module',
-      },
-      {
-        key: 'transport-module-b-1b',
-        name: 'B-1B Chaff & Flare Transport Module',
-      },
-      {
-        key: 'transport-module-bdu-33',
-        name: 'BDU-33 Transport Module',
-      },
-      {
-        key: 'transport-module-f-22',
-        name: 'F-22 Chaff and Flare Transport Module',
-      },
-    ],
+    key: 'roller-mj-1',
+    name: 'Rubber Roller for MJ-1',
+    partNumber: '200414151-30',
   },
+  {
+    key: 'roller-extender-assembly',
+    name: 'Universal Extender Assembly',
+    partNumber: '200334009',
+  },
+  {
+    key: 'sdb-lift-bar',
+    name: 'Small Diameter Bomb (SDB) Lightweight Lift Bar',
+    partNumber: 'X20097192',
+  },
+  {
+    key: 'ter-stand',
+    name: 'Triple Ejection Rack Storage Stand',
+  },
+  {
+    key: 'toolkit',
+    name: 'Missile and Bomb Assembly and Maintenance Tool Kits',
+  },
+  {
+    key: 'transport-module-105mm',
+    name: '105mm Transport Module',
+  },
+  {
+    key: 'transport-module-2-75mm',
+    name: '2.75MM Transport Module',
+  },
+  {
+    key: 'transport-module-ale-40',
+    name: 'ALE-40 Chaff & Flare Transport Module',
+  },
+  {
+    key: 'transport-module-ale-50',
+    name: 'ALE-50 Transport Module',
+  },
+  {
+    key: 'transport-module-b-1b',
+    name: 'B-1B Chaff & Flare Transport Module',
+  },
+  {
+    key: 'transport-module-bdu-33',
+    name: 'BDU-33 Transport Module',
+  },
+  {
+    key: 'transport-module-f-22',
+    name: 'F-22 Chaff and Flare Transport Module',
+  }
 ];
