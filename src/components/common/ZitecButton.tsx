@@ -2,7 +2,7 @@ import { Button } from 'react-bootstrap';
 import './common.css';
 
 export const ZitecButton = (props: {
-  style: React.CSSProperties,
+  style?: React.CSSProperties,
   onClick: () => void;
   children: string;
   size?: 'sm' | 'lg'
