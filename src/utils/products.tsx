@@ -17,6 +17,19 @@ export interface Product {
   description?: string;
 }
 
+// 🧩 Import all .png images under each product folder
+export const allProductImages = import.meta.glob<{ default: string }>(
+  '../assets/products/*/*.png',
+  { eager: true }
+);
+
+// 🔍 Get all images for a given product key
+export const getProductImages = (productKey: string): string[] => {
+  return Object.entries(allProductImages)
+    .filter(([path]) => path.includes(`/products/${productKey}/`))
+    .map(([, module]) => module.default);
+};
+
 export const products: Product[] = [
   {
     key: '20mm-gun-stand',

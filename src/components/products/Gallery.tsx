@@ -4,19 +4,7 @@ import ImageGallery from "react-image-gallery";
 import 'react-image-gallery/styles/css/image-gallery.css';
 
 import './gallery.css';
-
-// 🧩 Import all .png images under each product folder
-const allProductImages = import.meta.glob<{ default: string }>(
-  '../../assets/products/*/*.png',
-  { eager: true }
-);
-
-// 🔍 Get images for a given product
-const getProductImages = (productKey: string): string[] => {
-  return Object.entries(allProductImages)
-    .filter(([path]) => path.includes(`/products/${productKey}/`))
-    .map(([, module]) => module.default);
-};
+import { getProductImages } from '../../utils/products';
 
 const toImageGalleryImages = (imageSources: string[]) => {
   return imageSources.map(source => ({
